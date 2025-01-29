@@ -17,4 +17,6 @@ Stránka detailu produktu zobrazuje všechny informace o produktu a sekci s dopo
 
 ![wireframe](wiriframe.jpg)
 
+
+## DBschema
 ![DBschema](DBschema.jpg)
