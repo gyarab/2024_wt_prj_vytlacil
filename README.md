@@ -16,3 +16,5 @@ Stránka detailu produktu zobrazuje všechny informace o produktu a sekci s dopo
 ## Wireframes
 
 ![wireframe](wiriframe.jpg)
+
+![DBschema](DBschema.jpg)
