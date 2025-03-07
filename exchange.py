@@ -1,19 +1,38 @@
 import httpx
 
-print("online prevodnik men dle kurzu cnb")
+def get_exchange_rate():
+    url = "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=13.02.2025"
+    r = httpx.get(url)
+    lines = r.text.split("\n")
+    row = ""
+    for line in lines:
+        if "|EUR|" in line:
+            row = line
 
-url = "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt;jsessionid=189EF7A03CFCE3D9CF6F43DC0F7928A0?date=13.02.2025"
+    row_arr = row.split("|")
+    kurz_str = row_arr[-1].replace(",", ".")
+    kurz = float(kurz_str)
+    return kurz
 
-r = httpx.get(url)
+def convert_currency(amount, rate, direction):
+    if direction == "EUR>CZK":
+        return amount * rate
+    elif direction == "CZK>EUR":
+        return amount / rate
 
-in_array = r.text.split("\n") 
+def main():
+    print("Začněme")
+    
+    kurz = get_exchange_rate()
+    
+    vstup = input("Zadej částku: ")
+    castka = float(vstup)
+    
+    direction = input("Chceteli z eura do české koruny zadejte EUR>CZK. Cheteli z čeké koruny do eura zadejte CZK>EUR: ").strip()
+    
+    vysledek = convert_currency(castka, kurz, direction)
+    
+    print(f"Výsledek převodu je: {vysledek:.2f}")
 
-print(in_array)
-
-for line in in_array:
-    if "|EUR|" in line:
-        print(line)
-
-castka = input("Zadej castku v CZK: ")
-result = int(castka) * 25
-print(f"To je v EUR: {result}")
+if __name__ == "__main__":
+    main()
