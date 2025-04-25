@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='main/homepage.html')),
-    path('one', TemplateView.as_view(template_name='main/one.html')),
+    path('one', TemplateView.as_view(template_name='main/product.html')),
     path('two', TemplateView.as_view(template_name='main/two.html')),
+    path('produkt/<int:id>/', views.produkt_detail, name='produkt_detail'),
     
 ]

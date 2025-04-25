@@ -1,36 +1,123 @@
+<!-- homepage.html -->
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volejbalové Vybavení</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>Volejbalový e-shop</title>
+  <style>
+    :root {
+      --navy: #001F54;
+      --yellow: #FFBF00;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f6f9;
+      color: var(--navy);
+    }
+    header {
+      background-color: var(--navy);
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    header h1 {
+      margin: 0;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      padding: 2rem 4rem;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card img {
+      width: 520px;
+      height: 260px;
+      object-fit: contain;
+      background-color: #f9f9f9;
+      padding: 10px;
+    }
+    .card-content {
+      padding: 1.5rem;
+    }
+    .card h2 {
+      font-size: 1.4rem;
+      margin: 0.5rem 0;
+    }
+    .price {
+      color: var(--yellow);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--yellow);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    .btn:hover {
+      background-color: #e6ac00;
+    }
+    @media (max-width: 1000px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Volejbalové Vybavení</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="one.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="two.html">Kategorie</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </nav>
+  <header>
+    <h1>Volejbalový e-shop</h1>
+  </header>
 
-        <h1>Vítejte na stránkách volejbalového vybavení</h1>
+  <div class="products">
+    <div class="card">
+      <img src="https://www.insportline.cz/upload/product/640x640/mic1_04.jpg.webp" alt="Mikasa V200W">
+      <div class="card-content">
+        <h2>Mikasa V200W</h2>
+        <div class="price">1 499 Kč</div>
+        <a href="/produkt/1/" class="btn">Zobrazit detail</a>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQWD5J3gjX1SyiSRRmVuspA0qKdvP6-r8c0XypC379-5MQqLtC8YdR6CnQwcXGAaqVfthMYLuf-pzvw5ky5Qm7wSG0waSRGr_AHoAAVo4FKDqOZ3XJWj8_0HQE" alt="Asics Gel-Rocket">
+      <div class="card-content">
+        <h2>Asics Gel-Rocket</h2>
+        <div class="price">2 099 Kč</div>
+        <a href="/produkt/2/" class="btn">Zobrazit detail</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://www.basket-shop.cz/files_web/shop/images/preview-618-618/basket-shop-chranice-kolen-mcdavid-jumpy-knee-pad-601-20475-83311.jpg" alt="Chrániče kolen">
+      <div class="card-content">
+        <h2>Chrániče kolen McDavid</h2>
+        <div class="price">549 Kč</div>
+        <a href="/produkt/3/" class="btn">Zobrazit detail</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
